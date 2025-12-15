@@ -17,7 +17,7 @@ import entity.Librarian;
 import entity.Reader;
 
 /**
- * Servlet implementation class AdminViewLibrarian
+ * Servlet实现类 AdminViewLibrarian
  */
 public class ReaderViewReturnRecord extends HttpServlet {
 	private static final long serialVersionUID = 1L;

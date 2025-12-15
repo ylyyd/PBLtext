@@ -12,7 +12,7 @@ import util.*;
 import dao.ReaderDAO;
 
 /**
- * Servlet implementation class Readerlogin
+ * Servlet实现类 Readerlogin
  */
 public class ReaderLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,7 +55,7 @@ public class ReaderLogin extends HttpServlet {
 		if (request.getParameter("userID") == null || request.getParameter("password") == null
 				|| request.getParameter("userID").equals("") || request.getParameter("password").equals("")) {
 			out.print(
-					"<script language='javascript'>alert('Reader ID or Password Can Not Be Empty!');window.location.href='Login.jsp';</script>");
+					"<script language='javascript'>alert('读者ID或密码不能为空！');window.location.href='Login.jsp';</script>");
 		} else {
 			ReaderDAO readerDAO = new ReaderDAO();
 			entity.Reader reader = null;
@@ -64,7 +64,7 @@ public class ReaderLogin extends HttpServlet {
 			}
 			if (reader == null) {// 无法获取Reader实体
 				out.print(
-						"<script language='javascript'>alert('ReaderID Not Exist!');window.location.href='Login.jsp';</script>");
+						"<script language='javascript'>alert('读者ID不存在！');window.location.href='Login.jsp';</script>");
 			} else {
 				password = SecurityUtil.md5(password);
 				if (reader.getPassword().equals(password)) {
@@ -75,10 +75,10 @@ public class ReaderLogin extends HttpServlet {
 						response.sendRedirect("readerIndex.jsp");
 					} else
 						out.print(
-								"<script language='javascript'>alert('Your ReaderID has been locked!');window.location.href='Login.jsp';</script>");
+								"<script language='javascript'>alert('您的读者ID已被锁定！');window.location.href='Login.jsp';</script>");
 				} else {
 					out.print(
-							"<script language='javascript'>alert('Your ReaderID or Password is Wrong!');window.location.href='Login.jsp';</script>");
+							"<script language='javascript'>alert('您的读者ID或密码错误！');window.location.href='Login.jsp';</script>");
 				}
 			}
 		}

@@ -15,8 +15,8 @@ import dao.*;
 import entity.*;
 
 /**
- * Servlet implementation class SearchBookForReader
- * 
+ * Servlet实现类 SearchBookForReader
+ *
  */
 public class SearchBookForReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,7 +55,7 @@ public class SearchBookForReader extends HttpServlet {
 		// name=name.toLowerCase();//删除该行，否则英文无法查询
 		if (name == "" || name.isEmpty()) {
 			out.print(
-					"<script>alert('Please enter the full keyword, the keyword cannot null!');window.location='readerSearchBook.jsp';</script>");
+					"<script>alert('请输入完整的关键词，关键词不能为空！');window.location='readerSearchBook.jsp';</script>");
 		}
 		if (style.equals("Book Name")) {
 			books = bookDAO.getBookByAlikeTitle(name);
@@ -63,7 +63,7 @@ public class SearchBookForReader extends HttpServlet {
 
 			if (books.isEmpty()) {
 				out.print(
-						"<script>alert('No related books!Please try a new one!');window.location='readerSearchBook.jsp';</script>");
+						"<script>alert('没有相关书籍！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
 			} else {
 				session.setAttribute("bookList", books);
 				session.removeAttribute("bookEntity");
@@ -75,7 +75,7 @@ public class SearchBookForReader extends HttpServlet {
 
 			if (books.isEmpty()) {
 				out.print(
-						"<script>alert('No related books!Please try a new one!');window.location='readerSearchBook.jsp';</script>");
+						"<script>alert('没有相关书籍！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
 			} else {
 				session.setAttribute("bookList", books);
 				session.removeAttribute("bookEntity");
@@ -87,7 +87,7 @@ public class SearchBookForReader extends HttpServlet {
 
 			if (books.isEmpty()) {
 				out.print(
-						"<script>alert('No related books!Please try a new one!');window.location='readerSearchBook.jsp';</script>");
+						"<script>alert('没有相关书籍！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
 			} else {
 				session.setAttribute("bookList", books);
 				session.removeAttribute("bookEntity");
@@ -98,14 +98,14 @@ public class SearchBookForReader extends HttpServlet {
 			System.out.println(book.toString());
 			if (book == null) {
 				out.print(
-						"<script>alert('No related books!Please try a new one!');window.location='readerSearchBook.jsp';</script>");
+						"<script>alert('没有相关书籍！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
 			}
 			session.setAttribute("bookEntity", book);
 			session.removeAttribute("bookList");
 			request.getRequestDispatcher("readerSearchBook.jsp").forward(request, response);
 
 		} else {
-			out.print("<script>alert('Please select a search type!');window.location='readerSearchBook.jsp';</script>");
+			out.print("<script>alert('请选择搜索类型！');window.location='readerSearchBook.jsp';</script>");
 		}
 	}
 

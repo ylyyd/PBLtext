@@ -17,8 +17,8 @@ import entity.Book;
 import entity.Reader;
 
 /**
- * Servlet implementation class AddBookToCart
- * 
+ * Servlet实现类 AddBookToCart
+ *
  */
 public class AddBookToCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -58,7 +58,7 @@ public class AddBookToCart extends HttpServlet {
 
 		int id = Integer.valueOf(request.getParameter("id"));
 		borrowcartdao.addBorrowCart(id, reader_id);
-		out.print("<script>alert('Add successfully');window.history.back();</script>");
+		out.print("<script>alert('添加成功');window.history.back();</script>");
 	}
 
 }

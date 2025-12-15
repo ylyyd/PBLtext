@@ -15,8 +15,8 @@ import dao.BookDAO;
 import entity.Book;
 
 /**
- * Servlet implementation class ShowBookInLib
- * 
+ * Servlet实现类 ShowBookInLib
+ *
  */
 public class ShowBookInLib extends HttpServlet {
 
@@ -52,8 +52,7 @@ public class ShowBookInLib extends HttpServlet {
 		int total = bookDAO.getTotal(isbn);
 		//
 		// if(total==0) {
-		// out.print("<script>alert('Sorry,this kind of book is not
-		// available!');window.location='readerSearchBook.jsp';</script>");
+		// out.print("<script>alert('抱歉，这种书不可用！');window.location='readerSearchBook.jsp';</script>");
 		// return;
 		// }
 
@@ -76,12 +75,12 @@ public class ShowBookInLib extends HttpServlet {
 
 		if (isbn == "" || isbn.isEmpty()) {
 			out.print(
-					"<script>alert('Please enter the full keyword, the keyword cannot null!');window.location='readerSearchBook.jsp';</script>");
+					"<script>alert('请输入完整的关键词，关键词不能为空！');window.location='readerSearchBook.jsp';</script>");
 		}
 		books = bookDAO.getBookListByIsbnForCart(isbn, start, count);
 		if (books.isEmpty()) {
 			out.print(
-					"<script>alert('Sorry, there is no book in library right now!Please try a new one!');window.location='readerSearchBook.jsp';</script>");
+					"<script>alert('抱歉，图书馆现在没有这本书！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
 		} else {
 			session.setAttribute("bookInfoList", books);
 		}

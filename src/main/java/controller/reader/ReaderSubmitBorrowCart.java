@@ -56,7 +56,7 @@ public class ReaderSubmitBorrowCart extends HttpServlet {
 			if (num >= 10) {
 				PrintWriter out = response.getWriter();
 				out.print(
-						"<script language='javascript'>alert('You have reserved too many books!');window.location.href='readerFailedSubmitBorrowCart.jsp';</script>");
+						"<script language='javascript'>alert('您预约的书籍太多了！');window.location.href='readerFailedSubmitBorrowCart.jsp';</script>");
 			} else {
 				bookDAO.updateBookStateToReserve(bookid);
 				// List<Cart>carts =

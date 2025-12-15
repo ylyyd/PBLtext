@@ -1,71 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:if test="${empty sessionScope.ReaderEntity}">
-	<jsp:forward page="homepage.jsp" />
-</c:if>
-<jsp:include page="readerNavbar.jsp" />
-<body>
-<!-- WRAPPER -->
-<form method="post" action="readerChangeInformation.jsp">
-	<jsp:include page="readerLeftSlider.jsp" />
-	<!-- END LEFT SIDEBAR -->
-	<!-- MAIN -->
-
-	<div class="main">
-		<!-- MAIN CONTENT -->
-		<div class="main-content">
-			<div class="container-fluid">
-				<h3 class="page-title">读者首页</h3>
-				<div class="row">
-					<!-- BASIC TABLE -->
-					<div class="panel">
-						<div class="panel-body">
-							<table class="table">
-								<thead>
-								<tr>
-									<th>读者ID</th>
-									<th>读者姓名</th>
-									<th>状态</th>
-									<th>邮箱</th>
-									<th>最大借阅数</th>
-								</tr>
-								<tr>
-									<td>${sessionScope.ReaderEntity.id}</td>
-									<td>${sessionScope.ReaderEntity.name}</td>
-									<td>${sessionScope.ReaderEntity.state}</td>
-									<td>${sessionScope.ReaderEntity.email}</td>
-									<td>10</td>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-								</tr>
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+<html>
+<div id="wrapper">
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="brand">
+			<a href="readerIndex.jsp"><img
+					src="assets/img/BiblioSoft Logo.png" alt="BiblioSoft Logo"
+					class="img-responsive logo"></a>
+		</div>
+		<div class="container-fluid">
+			<div class="navbar-btn">
+				<button type="button" class="btn-toggle-fullwidth">
+					<i class="lnr lnr-arrow-left-circle"></i>
+				</button>
+			</div>
+			<form class="navbar-form navbar-left"></form>
+			<div id="navbar-menu">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown"> <img src="assets/img/user.png"
+																		 class="img-circle" alt="头像"> <span>${sessionScope.ReaderEntity.name}</span></a></li>
+				</ul>
 			</div>
 		</div>
-	</div>
-	<!-- END MAIN CONTENT -->
-	</div>
-	<!-- END MAIN -->
-	<div class="clearfix"></div>
+	</nav>
+	<!-- 结束导航栏 -->
+	<!-- 左侧边栏 -->
+	<div id="sidebar-nav" class="sidebar">
+		<div class="sidebar-scroll">
+			<nav>
+				<ul class="nav">
+					<li><a href="readerIndex.jsp" class=""><i
+							class="lnr lnr-home"></i> <span>读者首页</span></a></li>
+					<li><a href="readerChangeInformation.jsp" class=""><i
+							class="lnr lnr-code"></i> <span>修改信息</span></a></li>
+					<li><a href="readerSearchBook.jsp" class=""><i
+							class="lnr lnr-chart-bars"></i><span>搜索图书</span></a></li>
+					<li><a href="#subPages1" data-toggle="collapse"
+						   class="collapsed"><i class="lnr lnr-cog"></i> <span>借阅记录</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+						<div id="subPages1" class="collapse ">
+							<ul class="nav">
+								<li><a href="ReaderBorrowHistory" class=""><i
+										class="lnr lnr-cog"></i> <span>借阅历史</span></a></li>
+								<li><a href="ReaderReturnHistory" class=""><i
+										class="lnr lnr-alarm"></i><span>归还历史</span></a></li>
+							</ul>
+						</div></li>
 
+					<li><a href="ReaderBorrowCart" class=""><i
+							class="lnr lnr-linearicons"></i> <span>借阅车</span></a></li>
+					<li><a href="#" class="" onclick="logout();"><i
+							class="lnr lnr-linearicons"></i> <span>退出登录</span></a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
-	<!-- END WRAPPER -->
-	<jsp:include page="Footer.jsp" />
-	<!-- Javascript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
-</form>
-</body>
+	<script>
+		function logout() {
+			var result = confirm("请确认是否退出登录！");
+			if (result == true) {
+				window.location.href = "DestorySession";
+			} else {
 
+			}
+		}
+	</script>
 </html>

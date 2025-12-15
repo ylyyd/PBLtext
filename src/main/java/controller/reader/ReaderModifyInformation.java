@@ -17,7 +17,7 @@ import entity.Reader;
 import util.*;
 
 /**
- * Servlet implementation class ReaderModifyInformation
+ * Servlet实现类 ReaderModifyInformation
  */
 public class ReaderModifyInformation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,17 +46,17 @@ public class ReaderModifyInformation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Initialize
+		// 初始化
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
-		// get reader id
+		// 获取读者ID
 		Reader reader = (Reader) session.getAttribute("ReaderEntity");
 		int id = reader.getId();
 
-		// get new information
+		// 获取新信息
 		String name = (String) request.getParameter("newName");
 		String password = (String) request.getParameter("newPassword");
 		String email = (String) request.getParameter("newEmail");
@@ -65,7 +65,7 @@ public class ReaderModifyInformation extends HttpServlet {
 		ArrayList<Cart> cartList = reader.getCartList();
 		ReaderDAO readerDAO = new ReaderDAO();
 
-		// execute the update
+		// 执行更新
 		String newPassword1 = SecurityUtil.md5(password);
 		readerDAO.updateReaderInformation(id, name, newPassword1, email);
 		Reader newReader = new Reader();
@@ -76,7 +76,7 @@ public class ReaderModifyInformation extends HttpServlet {
 		newReader.setBorrowHistory(borrowhistory);
 		newReader.setCartList(cartList);
 		session.setAttribute("ReaderEntity", newReader);
-		out.print("<script>alert('Update information successfully! ');window.location='readerIndex.jsp';</script>");
+		out.print("<script>alert('更新信息成功！');window.location='readerIndex.jsp';</script>");
 
 	}
 }
