@@ -46,10 +46,10 @@ public class LibrarianEditBook extends HttpServlet {
 		String state = request.getParameter("State");
 		boolean tag = bookDAO.updateBookInfoById(bookId, location, state);
 		if (tag) {
-			out.print("<script language='javascript'>" + "alert('Congratulation! You have modify book Successfully!');"
+			out.print("<script language='javascript'>" + "alert('恭喜！您已成功修改书籍！');"
 					+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 		} else {
-			out.print("<script language='javascript'>" + "alert('Nothing have been changed!');"
+			out.print("<script language='javascript'>" + "alert('没有任何改变！');"
 					+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 		}
 

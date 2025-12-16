@@ -12,7 +12,7 @@ import dao.LibrarianDAO;
 import entity.Librarian;
 
 /**
- * Servlet implementation class AdminViewLibrarian
+ * Servlet实现类 AdminViewLibrarian
  */
 public class AdminViewLibrarian extends HttpServlet {
 	private static final long serialVersionUID = 1L;

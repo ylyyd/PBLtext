@@ -13,7 +13,7 @@ import dao.ReaderDAO;
 import entity.Reader;
 
 /**
- * Servlet implementation class SearchReaderBeforeEdit
+ * Servlet实现类 SearchReaderBeforeEdit
  */
 public class SearchReaderBeforeEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -51,7 +51,7 @@ public class SearchReaderBeforeEdit extends HttpServlet {
 			dispatcher.forward(request, response);// 转发
 		} catch (Exception e) {
 			System.out.println("--SearchReaderBeforeEdit--doPost(),传参错误：很有可能是reader账号没有写对");
-			out.print("<script language='javascript'>" + "alert('Reader ID may be invalid, please input again!');"
+			out.print("<script language='javascript'>" + "alert('读者ID可能无效，请重新输入！');"
 					+ "window.location.href='searchReaderBeforeEdit.jsp';" + "</script>");
 		}
 	}

@@ -15,7 +15,7 @@ import entity.Reader;
 
 /**
  * 该类用于librarian查询reader的信息 接收从librarianSearchReader.jsp传来的参数，通过doPost方法
- * 
+ *
  */
 public class LibrarianSearchReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -95,7 +95,7 @@ public class LibrarianSearchReader extends HttpServlet {
 				if (name != null && reader.getName().equals(name) && state == null
 						|| state != null && reader.getState().equals(state) && name == null
 						|| name == null && state == null || name != null && reader.getName().equals(name)
-								&& state != null && reader.getState().equals(state)) {
+						&& state != null && reader.getState().equals(state)) {
 					request.setAttribute("readerEntity", reader);
 					System.out.println("--LibrarianSearchReader--,Condition" + 1);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("librarianSearchReader.jsp");
@@ -103,12 +103,12 @@ public class LibrarianSearchReader extends HttpServlet {
 				} else {
 					System.out.println("--LibrarianSearchReader--,Condition" + 2);
 					PrintWriter out = response.getWriter();
-					out.print("<script language='javascript'>" + "alert('There is no such reader!');"
+					out.print("<script language='javascript'>" + "alert('没有这样的读者！');"
 							+ "window.location.href='librarianSearchReader.jsp';" + "</script>");
 				}
 			} else {
 				PrintWriter out = response.getWriter();
-				out.print("<script language='javascript'>" + "alert('There is no such reader!');"
+				out.print("<script language='javascript'>" + "alert('没有这样的读者！');"
 						+ "window.location.href='librarianSearchReader.jsp';" + "</script>");
 			}
 		} else {// id为空

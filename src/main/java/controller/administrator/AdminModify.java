@@ -11,8 +11,8 @@ import entity.Librarian;
 
 /**
  * 在把指定的Librarian的所有信息显示出来后将修改Librarian的信息
- * 
- * @author 
+ *
+ * @author
  *
  */
 public class AdminModify extends HttpServlet {
@@ -51,11 +51,11 @@ public class AdminModify extends HttpServlet {
 		int flag = new LibrarianDAO().updateLibrarian(id, name, password, state);
 
 		if (flag == 1) {
-			String msg = "Modify The Librarian Successfully!";
+			String msg = "修改管理员成功！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		} else {
-			String msg = "Modify the Librarian Failed!, Please Try Again!";
+			String msg = "修改管理员失败，请重试！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 

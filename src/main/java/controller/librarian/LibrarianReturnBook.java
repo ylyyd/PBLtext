@@ -18,7 +18,7 @@ import entity.Reader;
 
 /**
  * librarian处理还书
- * 
+ *
  *
  */
 public class LibrarianReturnBook extends HttpServlet {
@@ -38,11 +38,11 @@ public class LibrarianReturnBook extends HttpServlet {
 		Librarian librarian = (Librarian) session.getAttribute("librarianEntity");
 		if (dao.returnBook(bookId, librarian.getId())) {
 			PrintWriter out = response.getWriter();
-			out.print("<script language='javascript'>" + "alert('Success!');"
+			out.print("<script language='javascript'>" + "alert('成功！');"
 					+ "window.location.href='librarianReturnBook.jsp';" + "</script>");
 		} else {
 			PrintWriter out = response.getWriter();
-			out.print("<script language='javascript'>" + "alert('Failed!');"
+			out.print("<script language='javascript'>" + "alert('失败！');"
 					+ "window.location.href='librarianReturnBook.jsp';" + "</script>");
 		}
 
@@ -62,7 +62,7 @@ public class LibrarianReturnBook extends HttpServlet {
 		Reader reader = d.getReaderInBorrowItemByBookID(bookId);
 		if (reader == null) {
 			out.print("<script language='javascript'>"
-					+ "alert('No Reader borrowed this book or reader information are loss!');"
+					+ "alert('没有读者借阅此书或读者信息丢失！');"
 					+ "window.location.href='librarianReturnBook.jsp';" + "</script>");
 		}
 		BookDAO bDAO = new BookDAO();
@@ -79,13 +79,12 @@ public class LibrarianReturnBook extends HttpServlet {
 			// request.getRequestDispatcher("librarianReturnBook.jsp").forward(request,
 			// response);
 			// } else {
-			// out.print("<script language='javascript'>" + "alert('This Book is
-			// not borrowed!');"
+			// out.print("<script language='javascript'>" + "alert('这本书未被借阅！');"
 			// + "window.location.href='librarianReturnBook.jsp';" +
 			// "</script>");
 			// }
 		} else {
-			out.print("<script language='javascript'>" + "alert('Error Book ID! There is no book ID= '" + bookId + "!);"
+			out.print("<script language='javascript'>" + "alert('错误的书籍ID！不存在ID为'" + bookId + "的书！);"
 					+ "window.location.href='librarianReturnBook.jsp';" + "</script>");
 		}
 	}

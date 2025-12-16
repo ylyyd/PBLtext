@@ -12,8 +12,8 @@ import dao.ReaderDAO;
 
 /**
  * 该类用于librarian删除reader 接收从librarianDeleteReader.jsp传来的参数
- * 
- * @author 
+ *
+ * @author
  */
 public class LibrarianDeleteReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,22 +36,22 @@ public class LibrarianDeleteReader extends HttpServlet {
 			String name = request.getParameter("name");
 			if (name == null) {
 				System.out.println("--LibrarianDeleteReader--doPost(),name为空");
-				out.print("<script language='javascript'>" + "alert('Failed! Reason: Reader Name is NULL!');"
+				out.print("<script language='javascript'>" + "alert('失败！原因：读者姓名为空！');"
 						+ "window.location.href='librarianDeleteReader.jsp';" + "</script>");
 			}
 			ReaderDAO readerDAO = new ReaderDAO();
 			if (readerDAO.deleteReaderById(readerId, name)) {
 				System.out.println("--LibrarianDeleteReader--doPost(),删除成功");
-				out.print("<script language='javascript'>" + "alert('Succeed to delete Reader!');"
+				out.print("<script language='javascript'>" + "alert('成功删除读者！');"
 						+ "window.location.href='librarianDeleteReader.jsp';" + "</script>");
 			} else {
 				System.out.println("--LibrarianDeleteReader--doPost(),删除失败");
-				out.print("<script language='javascript'>" + "alert('Fail to Delete Reader!');"
+				out.print("<script language='javascript'>" + "alert('删除读者失败！');"
 						+ "window.location.href='librarianDeleteReader.jsp';" + "</script>");
 			}
 		} catch (Exception e) {
 			System.out.println("--LibrarianDeleteReader--doPost(),输入不合法");
-			out.print("<script language='javascript'>" + "alert('Invalid input!');"
+			out.print("<script language='javascript'>" + "alert('输入无效！');"
 					+ "window.location.href='librarianDeleteReader.jsp';" + "</script>");
 		}
 

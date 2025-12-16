@@ -18,7 +18,7 @@ import entity.Reader;
 
 /**
  * 该serlvet获取librarianLendBook.jsp的请求，查询reader的状态，并将book借给reader。
- * 
+ *
  */
 public class LibrarianLendBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public class LibrarianLendBook extends HttpServlet {
 
 	/**
 	 * 处理showCart.jsp发来的请求，同意将borrow_cart中的书借给读者
-	 * 
+	 *
 	 * @author zengyaoNPU
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,7 +56,7 @@ public class LibrarianLendBook extends HttpServlet {
 
 	/**
 	 * 接收从librarianLendBook.jsp发来的请求，将书借给读者
-	 * 
+	 *
 	 * @author zengyaoNPU
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -80,22 +80,22 @@ public class LibrarianLendBook extends HttpServlet {
 			Book book = bookDAO.searchByID(bookId);
 			if (book == null) {
 				System.out.println("--LibrarianLendBook--,book is null for id=" + bookId);
-				out.print("<script language='javascript'>" + "alert('Sorry! The book not exsits!');"
+				out.print("<script language='javascript'>" + "alert('抱歉！该书不存在！');"
 						+ "window.location.href='librarianLendBook.jsp';" + "</script>");
 			} else if (book.getState().equals("borrowed")) {// 书已被借阅
 				System.out.println("--LibrarianLendBook--,borrowed");
-				out.print("<script language='javascript'>" + "alert('Sorry! The book you selected has been borrowed!');"
+				out.print("<script language='javascript'>" + "alert('抱歉！您选择的书已被借阅！');"
 						+ "window.location.href='librarianLendBook.jsp';" + "</script>");
 			} else if (book.getState().equals("reserve")) {// 书已被预约
 				System.out.println("--LibrarianLendBook--,reserve");
-				out.print("<script language='javascript'>" + "alert('Sorry! The book you selected has been reserved!');"
+				out.print("<script language='javascript'>" + "alert('抱歉！您选择的书已被预约！');"
 						+ "window.location.href='librarianLendBook.jsp';" + "</script>");
 			} else {// 借书成功
 				System.out.println("--LibrarianLendBook--,success branch");
 				HttpSession session = request.getSession();
 				Librarian librarian = (Librarian) session.getAttribute("librarianEntity");
 				bookDAO.lendBook(bookId, readerId, librarian.getId());
-				out.print("<script language='javascript'>" + "alert('Congratulation! Borrow Successfully!');"
+				out.print("<script language='javascript'>" + "alert('恭喜！借阅成功！');"
 						+ "window.location.href='librarianLendBook.jsp';" + "</script>");
 			}
 		} else if (request.getParameter("readerId") != null) {

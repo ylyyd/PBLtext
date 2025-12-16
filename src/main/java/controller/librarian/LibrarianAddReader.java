@@ -40,11 +40,11 @@ public class LibrarianAddReader extends HttpServlet {
 		int readerId = readerDAO.addReaderByName_Passowrd_State(name, password, state);
 		if (readerId == -1) {
 			System.out.println("添加Reader失败");
-			out.print("<script language='javascript'>" + "alert('Sorry! Fail to Add Reader!');"
+			out.print("<script language='javascript'>" + "alert('抱歉！添加读者失败！');"
 					+ "window.location.href='librarianAddReader.jsp';" + "</script>");
 		} else {
 			System.out.println("添加Reader成功，新的reader id=" + readerId);
-			out.print("<script language='javascript'>" + "alert('Succeed to Add Reader!');"
+			out.print("<script language='javascript'>" + "alert('成功添加读者！');"
 					+ "window.location.href='ShowNewReader?reader_id=" + readerId + "';" + "</script>");
 		}
 	}

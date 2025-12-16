@@ -11,8 +11,8 @@ import entity.Librarian;
 
 /**
  * 先输入Librarian的ID，先判断是否存在该Librarian，若存在则跳转到AdminModifyLibrarian.jsp页面
- * 
- * @author 
+ *
+ * @author
  *
  */
 public class AdminModifyBefore extends HttpServlet {
@@ -44,7 +44,7 @@ public class AdminModifyBefore extends HttpServlet {
 			request.setAttribute("name", name);
 			request.getRequestDispatcher("adminModifyLibrarian.jsp").forward(request, response);
 		} else {
-			String msg = "Not Found This Librarian, Please Try Again!";
+			String msg = "未找到该管理员，请重试！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		}

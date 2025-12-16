@@ -8,7 +8,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 public class AccountStateTag extends TagSupport {
 	/**
 	 * 将librarian或reader的账号状态做成Tag标签
-	 * 
+	 *
 	 * @author GroverZhu
 	 */
 	public int doStartTag() throws JspException {

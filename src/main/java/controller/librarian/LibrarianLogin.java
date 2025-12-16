@@ -50,7 +50,7 @@ public class LibrarianLogin extends HttpServlet {
 		if (request.getParameter("userID") == null || request.getParameter("password") == null
 				|| request.getParameter("userID").equals("") || request.getParameter("password").equals("")) {
 			out.print(
-					"<script language='javascript'>alert('Librarian ID or Password Can Not Be Empty!');window.location.href='Login.jsp';</script>");
+					"<script language='javascript'>alert('管理员ID或密码不能为空！');window.location.href='Login.jsp';</script>");
 		} else {
 			LibrarianDAO librarianDAO = new LibrarianDAO();
 			Librarian librarian = null;
@@ -60,7 +60,7 @@ public class LibrarianLogin extends HttpServlet {
 			if (librarian == null) {// 无法获取librarian实体
 				System.out.println("用户不存在");
 				out.print(
-						"<script language='javascript'>alert('LibrarianID Not Exist!');window.location.href='Login.jsp';</script>");
+						"<script language='javascript'>alert('管理员ID不存在！');window.location.href='Login.jsp';</script>");
 			} else {
 				password = SecurityUtil.md5(password);
 				if (librarian.getPassword().equals(password)) {// 密码匹配
@@ -72,12 +72,12 @@ public class LibrarianLogin extends HttpServlet {
 					} else {
 						System.out.println("账号被锁定");
 						out.print(
-								"<script language='javascript'>alert('Your LibrarianID has been locked!');window.location.href='Login.jsp';</script>");
+								"<script language='javascript'>alert('您的管理员ID已被锁定！');window.location.href='Login.jsp';</script>");
 					}
 				} else {
 					System.out.println("密码不正确");
 					out.print(
-							"<script language='javascript'>alert('Your LibrarianID or Password is Wrong!');window.location.href='Login.jsp';</script>");
+							"<script language='javascript'>alert('您的管理员ID或密码错误！');window.location.href='Login.jsp';</script>");
 
 				}
 			}

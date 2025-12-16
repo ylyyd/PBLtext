@@ -19,7 +19,7 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * 该servlet用于验证ISBN的正确性，并从网上获取图书信息
- * 
+ *
  */
 public class ValidateISBN extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -72,11 +72,11 @@ public class ValidateISBN extends HttpServlet {
 			session.setAttribute("PubName__", maps.get("publisher"));
 
 			out.print(
-					"<script language='javascript'>alert('The ISBN is valid!');window.location.href='librarianAddBook.jsp';</script>");
+					"<script language='javascript'>alert('ISBN有效！');window.location.href='librarianAddBook.jsp';</script>");
 
 		} else {
 			out.print(
-					"<script language='javascript'>alert('Invailed ISBN!');window.location.href='librarianAddBook.jsp';</script>");
+					"<script language='javascript'>alert('无效的ISBN！');window.location.href='librarianAddBook.jsp';</script>");
 		}
 	}
 

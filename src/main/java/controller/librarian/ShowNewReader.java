@@ -11,7 +11,7 @@ import dao.ReaderDAO;
 import entity.Reader;
 
 /**
- * Servlet implementation class ShowNewReader
+ * Servlet实现类 ShowNewReader
  */
 public class ShowNewReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;

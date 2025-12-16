@@ -30,16 +30,16 @@ public class LibrarianDeleteBook extends HttpServlet {
 		BookDAO bookDAO = new BookDAO();
 		int tag = bookDAO.deleteBookById(bookId);
 		if (tag == 1) {
-			out.print("<script language='javascript'>" + "alert('Success to Delete Book!');"
+			out.print("<script language='javascript'>" + "alert('删除成功！');"
 					+ "window.location.href='librarianDeleteBook.jsp';" + "</script>");
 		} else if (tag == 2) {
-			out.print("<script language='javascript'>" + "alert('Fail to Delete Book! State is not inlib!');"
+			out.print("<script language='javascript'>" + "alert('删除失败！状态不是inlib！');"
 					+ "window.location.href='librarianDeleteBook.jsp';" + "</script>");
 		} else if (tag == 3) {
-			out.print("<script language='javascript'>" + "alert('Fail to Delete Book!This book doesn't EXIST');"
+			out.print("<script language='javascript'>" + "alert('删除失败！此书不存在！');"
 					+ "window.location.href='librarianDeleteBook.jsp';" + "</script>");
 		} else if (tag == 4) {
-			out.print("<script language='javascript'>" + "alert('Fail to Delete Book! Suffers Exceptoin!');"
+			out.print("<script language='javascript'>" + "alert('删除失败！出现异常！');"
 					+ "window.location.href='librarianDeleteBook.jsp';" + "</script>");
 		}
 

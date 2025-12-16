@@ -13,7 +13,7 @@ import entity.Cart;
 
 /**
  * 该servlet用于接收从showCart.jsp传来的get请求，从数据库中获取borrow_cart，并分页展示给librarian
- * 
+ *
  *
  */
 public class ShowCart extends HttpServlet {

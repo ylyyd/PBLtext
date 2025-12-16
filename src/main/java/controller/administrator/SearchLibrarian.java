@@ -12,7 +12,7 @@ import dao.LibrarianDAO;
 import entity.Librarian;
 
 /**
- * Servlet implementation class SearchLibrarian
+ * Servlet实现类 SearchLibrarian
  */
 public class SearchLibrarian extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,7 +42,7 @@ public class SearchLibrarian extends HttpServlet {
 				request.setAttribute("libs", libs);
 				request.getRequestDispatcher("adminSearchLibrarian.jsp").forward(request, response);
 			} else {
-				String msg = "The Librarian ID Not Exist, Please Try Other Librarian ID!";
+				String msg = "管理员ID不存在，请尝试其他管理员ID！";
 				request.setAttribute("message", msg);
 				request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 			}
@@ -56,7 +56,7 @@ public class SearchLibrarian extends HttpServlet {
 				request.setAttribute("libs", libs);
 				request.getRequestDispatcher("adminSearchLibrarian.jsp").forward(request, response);
 			} else {
-				String msg = "The Librarian Name Not Exist, Please Try Other Librarian Name!";
+				String msg = "管理员姓名不存在，请尝试其他管理员姓名！";
 				request.setAttribute("message", msg);
 				request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 			}

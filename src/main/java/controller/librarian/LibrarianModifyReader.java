@@ -15,7 +15,7 @@ import util.SecurityUtil;
 
 /**
  * 该Servlet的doGet方法将请求转发到Reader信息的修改界面 该Servlet的doPost方法处理Reader修改后的信息，并加入数据库
- * 
+ *
  */
 public class LibrarianModifyReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class LibrarianModifyReader extends HttpServlet {
 		if (readerDAO.updateData(id, name, password, email, state)) {
 			response.sendRedirect("SearchReaderBeforeEdit?reader_id=" + id);// 转发到该页面
 		} else {
-			out.print("<script language='javascript'>" + "alert('Fail to Modify Reader!');"
+			out.print("<script language='javascript'>" + "alert('修改读者失败！');"
 					+ "window.location.href='librarianModifyReader.jsp';" + "</script>");
 		}
 

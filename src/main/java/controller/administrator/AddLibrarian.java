@@ -11,7 +11,7 @@ import dao.LibrarianDAO;
 
 /**
  * 增加一个librarian，根据name跟password，添加成功后，则返回数据库自动生成的ID
- * 
+ *
  * @author GroverZhu
  *
  */
@@ -41,12 +41,12 @@ public class AddLibrarian extends HttpServlet {
 		LibrarianDAO lib = new LibrarianDAO();
 		int libId = lib.addLibrarian(name, password, "unlock");
 		if (libId != -1) {
-			String msg = "Add Librarian Successfully! The Librarian ID is : " + libId;
+			String msg = "添加管理员成功！管理员ID为：" + libId;
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		} else {
 
-			String msg = "Add Librarian Failed, Please Try Again!";
+			String msg = "添加管理员失败，请重试！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		}

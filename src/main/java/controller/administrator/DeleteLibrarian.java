@@ -10,8 +10,8 @@ import dao.LibrarianDAO;
 
 /**
  * 通过Librarian的名字与密码删除一个librarian
- * 
- * @author 
+ *
+ * @author
  *
  */
 public class DeleteLibrarian extends HttpServlet {
@@ -42,11 +42,11 @@ public class DeleteLibrarian extends HttpServlet {
 		int flag = libDao.deleteLibrarianByIdName(librarianId, librarianName);
 
 		if (flag == 1) {
-			String msg = "Delete the Librarian Successfully!";
+			String msg = "删除管理员成功！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		} else {
-			String msg = "Delete the Librarian Failed! The Librarian May Has Some Operations In this Library Or the Name & ID Not Correct!";
+			String msg = "删除管理员失败！该管理员可能在图书馆中有某些操作或姓名与ID不正确！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		}

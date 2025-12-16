@@ -12,7 +12,7 @@ import entity.Book;
 
 /**
  * 该servlet用于通过book_id搜索一本书的信息
- * 
+ *
  *
  */
 public class SearchBookById extends HttpServlet {

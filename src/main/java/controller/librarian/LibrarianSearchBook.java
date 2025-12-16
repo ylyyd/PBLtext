@@ -17,7 +17,7 @@ import entity.Book;
 
 /**
  * 该servlet用于获取librarianSearchBook.jsp的请求，返回图书的信息
- * 
+ *
  *
  */
 public class LibrarianSearchBook extends HttpServlet {
@@ -58,7 +58,7 @@ public class LibrarianSearchBook extends HttpServlet {
 
 		if (total == 0) {
 			out.print(
-					"<script>alert('This kind of book is not available!');window.location='librarianSearchBook.jsp';</script>");
+					"<script>alert('这种书不可用！');window.location='librarianSearchBook.jsp';</script>");
 			return;
 		}
 
@@ -98,7 +98,7 @@ public class LibrarianSearchBook extends HttpServlet {
 			System.out.println("By Book Name");
 			List<Book> list = (List<Book>) bookDAO.getBookByAlikeTitle(keyword);
 			if (list == null || list.isEmpty()) {
-				out.print("<script language='javascript'>" + "alert('There is no such book in the library!');"
+				out.print("<script language='javascript'>" + "alert('图书馆中没有这样的书！');"
 						+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 			} else {
 				// 不知道为什么，这里用requestDispatcher的时候，第二次进入jsp页面会中文乱码
@@ -111,7 +111,7 @@ public class LibrarianSearchBook extends HttpServlet {
 			System.out.println("By ISBN");
 			Book book = bookDAO.getBookByIsbn(keyword);
 			if (book == null) {
-				out.print("<script language='javascript'>" + "alert('There is no such book in the library!');"
+				out.print("<script language='javascript'>" + "alert('图书馆中没有这样的书！');"
 						+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 			} else {
 				HttpSession session = request.getSession();
@@ -123,7 +123,7 @@ public class LibrarianSearchBook extends HttpServlet {
 			System.out.println("By Author");
 			List<Book> list = (List<Book>) bookDAO.getBookByAuthor(keyword);
 			if (list == null || list.isEmpty()) {
-				out.print("<script language='javascript'>" + "alert('There is no such book in the library!');"
+				out.print("<script language='javascript'>" + "alert('图书馆中没有这样的书！');"
 						+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 			} else {
 				HttpSession session = request.getSession();
@@ -134,7 +134,7 @@ public class LibrarianSearchBook extends HttpServlet {
 		} else if (searchBy.equals("Publisher")) {
 			List<Book> list = (List<Book>) bookDAO.getBookByPublisher(keyword);
 			if (list == null || list.isEmpty()) {
-				out.print("<script language='javascript'>" + "alert('There is no such book in the library!');"
+				out.print("<script language='javascript'>" + "alert('图书馆中没有这样的书！');"
 						+ "window.location.href='librarianSearchBook.jsp';" + "</script>");
 			} else {
 				HttpSession session = request.getSession();

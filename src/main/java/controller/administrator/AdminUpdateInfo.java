@@ -12,8 +12,8 @@ import entity.Administrator;
 
 /**
  * 更新administrator的名字/密码
- * 
- * @author 
+ *
+ * @author
  *
  */
 public class AdminUpdateInfo extends HttpServlet {
@@ -61,12 +61,12 @@ public class AdminUpdateInfo extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("AdministratorEntity", admin);
 
-			String msg = "Update the Information Successfully!";
+			String msg = "更新信息成功！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		} else {
 
-			String msg = "Update the Information Failed, Please Try Again!";
+			String msg = "更新信息失败，请重试！";
 			request.setAttribute("message", msg);
 			request.getRequestDispatcher("adminOperateResult.jsp").forward(request, response);
 		}
