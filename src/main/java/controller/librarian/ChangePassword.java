@@ -34,8 +34,10 @@ public class ChangePassword extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+
 		Librarian librarian = (Librarian) session.getAttribute("librarianEntity");
 		LibrarianDAO librarianDAO = new LibrarianDAO();
 		// 获取表单数据

@@ -30,10 +30,11 @@ public class LibrarianSearchBook extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
+
 		BookDAO bookDAO = new BookDAO();
 		HttpSession session = request.getSession();
 		Collection<Book> books = new ArrayList<Book>();
@@ -89,7 +90,9 @@ public class LibrarianSearchBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
+
 		String searchBy = request.getParameter("searchBy");
 		String keyword = request.getParameter("keyword");
 		System.out.println("关键词keyword=" + keyword);

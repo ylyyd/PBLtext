@@ -15,8 +15,6 @@ import dao.ReaderDAO;
 
 /**
  * 该类用于处理登录请求，根据权限（Reader/Librarian/Administrator）分发到不同的servlet
- * 
- * @author zengyaoNPU
  *
  */
 public class LoginHandler extends HttpServlet {
@@ -33,8 +31,8 @@ public class LoginHandler extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		if (request.getParameter("authority") == null || request.getParameter("userID") == null
 				|| request.getParameter("password") == null || request.getParameter("authority").equals("")
 				|| request.getParameter("userID").equals("") || request.getParameter("password").equals("")) {

@@ -26,6 +26,8 @@ public class LibrarianEditBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		int bookId = Integer.parseInt(request.getParameter("book_id"));
 		Book book = bookDAO.searchByID(bookId);
 		List<Book> list = (List<Book>) bookDAO.getBookListByIsbn(book.getISBN());
@@ -40,6 +42,7 @@ public class LibrarianEditBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		int bookId = Integer.parseInt(request.getParameter("Book ID"));
 		String location = request.getParameter("Location");

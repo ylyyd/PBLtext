@@ -31,9 +31,11 @@ public class AdministratorLogin extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
 		String usersid = (String) request.getParameter("userID");
 		int userid = Integer.MAX_VALUE;
 		if (usersid != null && !usersid.isEmpty())

@@ -1,6 +1,7 @@
 package controller.librarian;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class ShowNewReader extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		String s = request.getParameter("reader_id");
 		int readerId = Integer.parseInt(s);
 		ReaderDAO readerDAO = new ReaderDAO();

@@ -37,6 +37,8 @@ public class LibrarianLendBook extends HttpServlet {
 		// 获取参数
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		String operate = request.getParameter("operate");
 		int readerId = Integer.parseInt(request.getParameter("readerId"));
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
@@ -63,6 +65,7 @@ public class LibrarianLendBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if (request.getParameter("bookId") != null) {
 			// 获取参数

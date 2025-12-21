@@ -27,9 +27,11 @@ public class LibrarianAddReader extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		// 获取参数
 		String name = request.getParameter("readerName");// 用户名
 		String password = request.getParameter("password");// 密码

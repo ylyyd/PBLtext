@@ -1,6 +1,7 @@
 package controller.administrator;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +36,8 @@ public class AddLibrarian extends HttpServlet {
 		// 设置编码格式
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		String name = request.getParameter("librarianName");
 		String password = util.SecurityUtil.md5(request.getParameter("password"));

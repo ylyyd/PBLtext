@@ -1,6 +1,7 @@
 package controller.librarian;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,8 @@ public class SearchBookById extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		int bookId = Integer.parseInt(request.getParameter("book_id"));// 获取参数
 		BookDAO bookDAO = new BookDAO();
 		Book book = bookDAO.searchByID(bookId);// 实例化一个book

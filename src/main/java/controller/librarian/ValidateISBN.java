@@ -36,6 +36,8 @@ public class ValidateISBN extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+
 		String isbn = request.getParameter("ISBN");
 		String uri = "https://api.douban.com/v2/book/isbn/" + isbn;
 		String jsonData = "";

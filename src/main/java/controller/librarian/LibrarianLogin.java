@@ -37,9 +37,11 @@ public class LibrarianLogin extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 测试用：NPU，710072
-		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
 		String userName = (String) request.getParameter("userID");// 获取用户名
 		int userid = Integer.MAX_VALUE;
 		if (userName != null && !userName.isEmpty())

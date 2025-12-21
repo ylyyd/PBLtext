@@ -1,6 +1,7 @@
 package controller.librarian;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -27,6 +28,8 @@ public class ShowCart extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		int start = 0;// 起始行
 		int count = 5;// 每页显示行数
 		try {

@@ -26,6 +26,8 @@ public class SearchReaderBeforeEdit extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		int readerId = Integer.parseInt(request.getParameter("reader_id"));
 		ReaderDAO readerDAO = new ReaderDAO();

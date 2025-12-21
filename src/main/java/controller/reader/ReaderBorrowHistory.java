@@ -33,6 +33,8 @@ public class ReaderBorrowHistory extends HttpServlet {
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		Reader reader = (Reader) session.getAttribute("ReaderEntity");
 		int userid = Integer.MAX_VALUE;
 		if (reader != null) {

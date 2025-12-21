@@ -33,6 +33,8 @@ public class LibrarianSearchReader extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		try {
 			start = Integer.parseInt(request.getParameter("start"));
 		} catch (NumberFormatException e) {

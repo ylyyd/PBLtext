@@ -33,6 +33,8 @@ public class LibrarianReturnBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
 		HttpSession session = request.getSession();
 		Librarian librarian = (Librarian) session.getAttribute("librarianEntity");
@@ -52,6 +54,7 @@ public class LibrarianReturnBook extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
 		HttpSession session = request.getSession();

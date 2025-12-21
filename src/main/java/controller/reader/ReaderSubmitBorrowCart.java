@@ -28,6 +28,8 @@ public class ReaderSubmitBorrowCart extends HttpServlet {
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+
 		String bookids = request.getParameter("bookid");
 		int bookid = Integer.MAX_VALUE;
 		if (bookids != null)
