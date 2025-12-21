@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<footer>
 		<div class="container-fluid">
-			<p class="copyright">版权所有 &copy; 2018.在线图书馆系统 保留所有权利。</p>
+			<p class="copyright">版权所有 &copy; 2025.在线图书馆系统 保留所有权利。</p>
 		</div>
 	</footer>
 </html>
