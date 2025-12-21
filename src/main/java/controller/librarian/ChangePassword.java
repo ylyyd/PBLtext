@@ -15,8 +15,6 @@ import util.SecurityUtil;
 
 /**
  * 该Servlet用于接收Librarian修改密码的请求
- *
- *
  */
 public class ChangePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;

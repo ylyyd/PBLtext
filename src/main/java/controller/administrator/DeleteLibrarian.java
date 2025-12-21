@@ -11,9 +11,6 @@ import dao.LibrarianDAO;
 
 /**
  * 通过Librarian的名字与密码删除一个librarian
- *
- * @author
- *
  */
 public class DeleteLibrarian extends HttpServlet {
 	private static final long serialVersionUID = 1L;

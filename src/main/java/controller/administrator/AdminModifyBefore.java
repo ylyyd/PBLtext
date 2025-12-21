@@ -12,9 +12,6 @@ import entity.Librarian;
 
 /**
  * 先输入Librarian的ID，先判断是否存在该Librarian，若存在则跳转到AdminModifyLibrarian.jsp页面
- *
- * @author
- *
  */
 public class AdminModifyBefore extends HttpServlet {
 	private static final long serialVersionUID = 1L;

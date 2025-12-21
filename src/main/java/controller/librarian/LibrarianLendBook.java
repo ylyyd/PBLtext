@@ -29,8 +29,6 @@ public class LibrarianLendBook extends HttpServlet {
 
 	/**
 	 * 处理showCart.jsp发来的请求，同意将borrow_cart中的书借给读者
-	 *
-	 * @author zengyaoNPU
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

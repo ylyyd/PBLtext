@@ -12,8 +12,6 @@ import dao.ReaderDAO;
 
 /**
  * 该类用于librarian删除reader 接收从librarianDeleteReader.jsp传来的参数
- *
- * @author
  */
 public class LibrarianDeleteReader extends HttpServlet {
 	private static final long serialVersionUID = 1L;

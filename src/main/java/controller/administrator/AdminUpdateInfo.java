@@ -13,9 +13,6 @@ import entity.Administrator;
 
 /**
  * 更新administrator的名字/密码
- *
- * @author
- *
  */
 public class AdminUpdateInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
