@@ -13,8 +13,6 @@ import dao.LibrarianDAO;
 /**
  * 增加一个librarian，根据name跟password，添加成功后，则返回数据库自动生成的ID
  *
- * @author GroverZhu
- *
  */
 public class AddLibrarian extends HttpServlet {
 	private static final long serialVersionUID = 1L;

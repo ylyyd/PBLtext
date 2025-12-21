@@ -12,9 +12,6 @@ import entity.Librarian;
 
 /**
  * 在把指定的Librarian的所有信息显示出来后将修改Librarian的信息
- *
- * @author
- *
  */
 public class AdminModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;

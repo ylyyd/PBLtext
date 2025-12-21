@@ -15,8 +15,6 @@ import util.SecurityUtil;
 
 /**
  * 该类用于处理Administrator登录的业务逻辑
- *
- * @author zengyaoNPU 11.14基本全改了。
  */
 public class AdministratorLogin extends HttpServlet {
 	public void destroy() {

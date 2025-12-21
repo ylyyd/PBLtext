@@ -17,8 +17,6 @@ import entity.Book;
 
 /**
  * 该servlet用于获取librarianSearchBook.jsp的请求，返回图书的信息
- *
- *
  */
 public class LibrarianSearchBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
