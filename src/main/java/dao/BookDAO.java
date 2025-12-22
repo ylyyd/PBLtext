@@ -1112,11 +1112,13 @@ public class BookDAO {
 		Collection bookColle = new ArrayList();
 		String sql = null;
 		if (isbn != "all" && isbn != "" && isbn != null) {
-			sql = " select book_id,book.isbn,book_name,book_price,book_description,publisher.publisher_id,publisher_name,publisher_description,book_location,state,GROUP_CONCAT(distinct author.author_name SEPARATOR ',') from (((book join book_in_library on book.isbn=book_in_library.isbn) "
+			sql = "select book_id,book.isbn,book_name,book_price,book_description,publisher.publisher_id,publisher_name,publisher_description,book_location,state,GROUP_CONCAT(distinct author.author_name SEPARATOR ',') from (((book join book_in_library on book.isbn=book_in_library.isbn) "
 					+ " left join publisher on publisher.publisher_id=book.publisher_id) "
 					+ " left join writes on writes.isbn=book.isbn "
-					+ " left join author on author.author_id=writes.author_id) " + " where book.isbn=\'" + isbn
-					+ "\' group by book_id desc limit ?,?";
+					+ " left join author on author.author_id=writes.author_id) "
+					+ " where book.isbn=? and book_in_library.state='inlib'"
+					+ " group by book_id limit ?,?";
+
 
 		} else {
 			return bookColle;
@@ -1125,8 +1127,10 @@ public class BookDAO {
 		try {
 			conn = DatabaseUtil.getInstance().getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, start);
-			ps.setInt(2, count);
+			ps.setString(1, isbn);  // 设置ISBN参数
+			ps.setInt(2, start);    // 设置起始位置参数
+			ps.setInt(3, count);    // 设置数量参数
+
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				book = new Book();

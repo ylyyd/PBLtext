@@ -94,38 +94,37 @@
 										<th>状态</th>
 										<th>操作</th>
 									</tr>
-
+									</thead>
+									<tbody>
 									<!-- 展示书籍信息 -->
-
-									<c:set var="bookInfoList" scope="session"
-										   value="${bookInfoList}" />
-									<c:set var="bookInfoISBN" scope="session"
-										   value="${bookInfoISBN}" />
+									<c:set var="bookInfoList" scope="session" value="${bookInfoList}" />
+									<c:set var="bookInfoISBN" scope="session" value="${bookInfoISBN}" />
 
 									<c:forEach var="book" items="${bookInfoList }">
 										<tr>
-											<th>${book.id }</th>
-											<th>${book.ISBN }</th>
-											<th>${book.name }</th>
-											<th>${book.authors }</th>
-											<th>${book.publisher.name }</th>
-											<th>${book.location }</th>
-											<th>${book.state }</th>
+											<td>${book.id }</td>
+											<td>${book.ISBN }</td>
+											<td>${book.name }</td>
+											<td>${book.authors }</td>
+											<td>${book.publisher.name }</td>
+											<td>${book.location }</td>
+											<td>${book.state }</td>
 											<c:if test="${book.state=='inlib'}" var="flag">
-												<th><form method="post" action="AddBookToCart">
-													<input type="hidden" name="id" value='${book.id}'></input>
-													<button type="submit" name="addtocart"
-															class="btn btn-success">加入购物车</button>
-												</form></th>
+												<td>
+													<form method="post" action="AddBookToCart">
+														<input type="hidden" name="id" value='${book.id}' />
+														<button type="submit" name="addtocart" class="btn btn-success">加入购物车</button>
+													</form>
+												</td>
 											</c:if>
 											<c:if test="${not flag}">
-												<th></th>
+												<td></td>
 											</c:if>
 										</tr>
 									</c:forEach>
-									</thead>
-
+									</tbody>
 								</table>
+
 								<nav>
 
 									<ul class="pager">

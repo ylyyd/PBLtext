@@ -50,8 +50,10 @@ public class ShowBookInLib extends HttpServlet {
 
 		try {
 			// 尝试从请求参数中获取起始位置
-			start = Integer.parseInt(request.getParameter("start"));
-		} catch (NumberFormatException e) {
+			String startParam = request.getParameter("start");
+			if (startParam != null && !startParam.isEmpty()) {
+				start = Integer.parseInt(startParam);
+			}		} catch (NumberFormatException e) {
 			// 处理数字格式异常并打印堆栈跟踪
 			e.printStackTrace();
 		}
@@ -112,6 +114,7 @@ public class ShowBookInLib extends HttpServlet {
 			// 书籍列表为空，提示错误并跳转回搜索页面
 			out.print(
 					"<script>alert('抱歉，图书馆现在没有这本书！请尝试新的搜索！');window.location='readerSearchBook.jsp';</script>");
+			return;
 		} else {
 			// 将书籍信息列表保存到会话中
 			session.setAttribute("bookInfoList", books);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class URLFilter
+ * 实现Servlet过滤器
  */
 public class URLFilter implements Filter {
 
